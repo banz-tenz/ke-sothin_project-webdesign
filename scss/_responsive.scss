@@ -161,6 +161,22 @@
         padding: 8px;
         font-size: 10px;
     }
+    #purpose{
+        font-size: 20px;
+    }
+    marquee {
+        margin-top: 20px;
+    }
+    marquee img {
+        width: 50px;
+        height: 50px;
+    }
+    footer h3 {
+        font-size: 14px;
+    }
+    footer a {
+        font-size: 12px;
+    }
 }
 
 @media (max-width:374px) {
