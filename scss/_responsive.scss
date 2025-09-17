@@ -134,9 +134,12 @@
 }
 
 @media(max-width:424px) {
+    p {
+        font-size: 10px;
+    }
     .aviableClass .class,
     .comming .class{
-        height: 500px;
+        height: fit-content;
     }
     .marquee-content img {
         width: 50px;

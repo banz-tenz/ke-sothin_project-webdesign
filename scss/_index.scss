@@ -461,28 +461,16 @@ main{
 #purpose {
     text-align: center;
 }
-
-.marquee-content {
-  display: flex;
-  gap: 20px; /* spacing between images */
-  animation: marquee 15s linear infinite; /* adjust speed */
+marquee {
+    margin-top: 80px;
 }
-
-.marquee-content span {
-  display: flex;
-  gap: 20px; /* same spacing for duplicate set */
-}
-
-.marquee-content img {
-  width: 100px;
-  height: 100px;
-  border-radius: 100%; /* circular images */
-  object-fit: cover;
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* move half width of duplicated content */
+marquee img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 100%;
+    margin-right: 40px;
+    box-shadow: $box-shadow-sm;
 }
 //----------------------------------------------
 //                 About us section
