@@ -1,0 +1,174 @@
+@mixin gridItem($col, $gap:8px){
+    display: grid;
+    grid-template-columns: repeat($col, 1fr);
+    gap: $gap;
+}
+
+@mixin flex-centered($gap:0) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $gap;
+}
+@media (min-width:1025px){
+    .cardName .image {
+        left: 120px;
+        top: 12px;
+        width: 200px;
+        height: 200px;
+    }
+    .text-dsc p {
+        font-size: 14px;
+    }
+    .cardName .contact-group a:nth-child(1) {
+        @include flex-centered();
+    }
+}
+
+@media (max-width:1023px) {
+    // =================HEADER STYLE========================
+    nav .logo h2{
+        font-size: 16px;
+    }
+    .nav-menu a {
+        font-size: 12px;
+    }
+    .hero-section p {
+    font-size: 12px;
+    }
+    .hero-section h1{
+        font-size: 32px;
+    }
+    .group-cards{
+        @include gridItem(1,10px )
+    }
+    .class-section .search-box div{
+        width: 100%;
+        justify-content: start;
+    }
+    .class-section .search-box div p{
+        font-size: 12px;
+    }
+    .class-section .search-box div input {
+        width: 80%;
+    }
+
+    .aviableClass,
+    .comming{
+        @include gridItem(2, 12px);
+        margin-top: 24px;
+        padding: 12px;
+        margin-bottom: 32px;
+    }
+    .marquee-content img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .cardName .image{
+        left: 100px
+    }
+    .cardName{
+        @include gridItem(1, 20px);
+        margin: 20px 100px;
+        text-align: center;
+    }
+    .cardName .text-dsc p {
+        text-align: center;
+    }
+    .cardName .text-dsc .contact-group{
+        justify-content: center;
+    }
+    .cardName .contact-group a:nth-child(1) {
+        @include flex-centered();
+    }
+    .goals {
+        margin: 48px 24px;
+        gap: 12px;
+    }
+}
+
+@media (max-width:767px) {
+    .icon-feature{
+        display: inline-block;
+    }
+    .nav-menu .text-feature{
+        display: none;
+    }
+    .nav-menu a {
+        &::after{
+            left: 0;
+        }
+    }
+    .telegram {
+        right: 4px;
+        top: 92%;
+    }
+    .hero-section{
+        width: 100%;
+        padding: 120px 20px 32px 20px;
+    }
+    .class-section .search-box .search{
+        width: 100%;
+    }
+    .aviableClass,
+    .comming{
+        @include gridItem(1,24px )
+    }
+    .marquee-content img {
+        width: 70px;
+        height: 70px;
+    }
+    .cardName{
+        margin: 20px 8px;
+    }
+    .cardName .image{
+        left: 30px;
+    }
+    .goals {
+        @include gridItem(1,56px );
+    }
+    footer{
+        @include gridItem(1,24px );
+    }
+}
+
+@media(max-width:424px) {
+    .aviableClass .class,
+    .comming .class{
+        height: 500px;
+    }
+    .marquee-content img {
+        width: 50px;
+        height: 50px;
+    }
+    .cardName {
+        padding: 24px 4px;
+    }
+    .cardName .image{
+        width: 180px;
+        height: 180px;
+        padding: 2px;
+        left: 60px;
+    }
+    .cardName .text-dsc p{
+        font-size: 12px;
+    }
+    .cardName .text-dsc .contact-group a{
+        padding: 8px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width:374px) {
+    header {
+        padding: 0 12px;
+    }
+    .cardName .image{
+        left: 40px;
+    }
+    .marquee-content img {
+        width: 40px;
+        height: 40px;
+    }
+}

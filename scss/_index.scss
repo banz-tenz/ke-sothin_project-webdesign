@@ -1,0 +1,742 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Khmer&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playwrite+AU+QLD:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap');
+
+@import "variables";
+@import "responsive";
+
+@mixin gridItem($col, $gap:8px){
+    display: grid;
+    grid-template-columns: repeat($col, 1fr);
+    gap: $gap;
+}
+
+@mixin text-gradient($font-size) {
+  font-size: $font-size;
+  background: $linear-color;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin flex-space-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex-centered($gap:0) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $gap;
+}
+
+@mixin btn-style-lg($size,$color-start, $color-end) {
+    padding: $btn-padding-lg;
+    box-shadow: $box-shadow-md;
+    font-size: $size;
+    border: none;
+    border-radius: $border-reduis-md;
+    background: linear-gradient(to right, $color-start,$color-end);
+    color: white;
+    font-weight: 600;
+}
+
+@mixin btn-style-sm{
+    padding: $btn-padding-sm;
+    box-shadow: $box-shadow-sm;
+}
+
+@keyframes hoverUpBtn{
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-6px);
+        box-shadow: $box-shadow-lg;
+    }
+}
+
+@mixin hoverBtn{
+    animation: hoverUpBtn linear forwards .3s;
+}
+
+@mixin class($count,$gap:12px) {
+    display: grid;
+    grid-template-columns: repeat($count,1fr);
+    gap: $gap;
+}
+
+@mixin cardStyle($magin-top){
+    padding: $btn-padding-md;
+    border-radius: $border-reduis-md;
+    margin-top: $magin-top;
+}
+
+@mixin goUpAminated($time:.3s){
+    animation: goUpAnimate  $time linear forwards;
+}
+@keyframes goUpAnimate {
+    from{
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-6px);
+    }
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+}
+
+// =================HEADER STYLE========================
+header{
+    width: 100%;
+    padding: 0 32px;
+    position: fixed;
+    top: 20px;
+    box-shadow: $border-reduis-lg;
+    z-index: 9999;
+}
+
+nav{
+    backdrop-filter: blur(8px);
+    width: 100%;
+    @include flex-space-between();
+    box-shadow: $box-shadow-md;
+    padding: $btn-padding-md;
+    border-radius: $border-reduis-md;
+    background-color: rgba(255, 255, 255, 0.715);
+}
+
+.nav-menu{
+    list-style-type: none;
+    @include flex-centered();
+    gap: 12px;
+}
+nav .logo h2 {
+    @include text-gradient($font-size-lg);
+}
+.nav-menu a {
+  font-size: $font-size-sm;
+  font-weight: 600;
+  color: $gray;
+  position: relative;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 6px;
+    width: 0;
+    height: 2px;
+    background: $blue;
+    transition: width 0.3s;
+  }
+
+  &:hover::after {
+    width: 90%;
+  }
+
+  &.active {
+    color: $blue;
+
+    &::after {
+      width: 90%; 
+    }
+  }
+}
+
+
+.nav-menu .text-feature {
+    display: inline-block;
+    padding: $btn-padding-md;
+    text-decoration: none;
+}
+.icon-feature{
+    display: none;
+}
+.telegram {
+    @include btn-style-lg($font-size-sm, $blue, $blue);
+    position: fixed;
+    top: 88vh;
+    right: 10vh;
+    cursor: pointer;
+    z-index: 999;
+}
+.telegram:hover{
+    @include goUpAminated(0.3s);
+    
+}
+
+main{
+    width: 100%;
+}
+// ===================HERO SECTION======================
+.hero-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 180px 32px 180px;
+    background: rgba(202, 202, 249, 0.411);
+}
+.hero-section p {
+    font-size: $font-size-sm;
+    &:nth-child(1){
+        padding: $btn-padding-sm;
+        background-color: rgba(0, 0, 255, 0.137);
+        border-radius: $border-reduis-md;
+        color: $blue;
+        animation: upDown linear infinite 5s;
+        border: 1px solid blue;
+    }
+    &:nth-last-child(2){
+        color: $gray;
+        margin-bottom: 24px
+    }
+}
+@keyframes upDown{
+    0%,50%,100%{
+        transform: translateY(0);
+    }
+    25%,75%{
+        transform: translateY(6px)
+    }
+}
+.hero-section h1 {
+    position: relative;
+    @include text-gradient($font-size-xl);
+    text-align: center;
+    margin-top: 32px;
+    margin-bottom: 24px;
+}
+
+.btn-group{
+    @include flex-centered(32px);
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+.btn-group .app {
+    @include btn-style-lg($font-size-sm,$blue,$purple)
+}
+.button:hover{
+    @include goUpAminated(0.4s);
+}
+.btn-group .freeDoc{
+    @include btn-style-lg($font-size-sm, $white, $white);
+    color:$black;
+}
+
+.group-cards {
+    @include class(3, 32px);
+    
+}
+.card{
+    @include cardStyle(40px);
+    border: 1px solid $gray;
+    height: 200px;
+    align-content: center;
+    box-shadow: $box-shadow-sm;
+}
+.card:hover{
+    @include hoverBtn();
+}
+.card h3,p {
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+.card p {
+    color: $gray;
+}
+
+
+//----------------------------------------------
+//                 Classes section
+// ---------------------------------------------
+
+
+.class-section {
+    padding: 20px;
+    padding-top: 120px;
+}
+.group-title {
+    @include flex-centered(12px);
+    flex-direction: column;
+}
+.group-title h1 {
+    @include text-gradient($font-size-lg);
+}
+.group-title p {
+    color: $gray;
+}
+.class-section .search-box {
+    @include flex-centered(12px);
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+.class-section .search-box .search {
+    padding: 4px 12px ;
+    border: 1px solid $gray;
+    border-radius: $border-reduis-md;
+    width: 40%;
+}
+.class-section .search-box div {
+    width: 50%;
+    @include flex-centered(8px);
+    flex-wrap: wrap;
+}
+.class-section .search-box div input{
+    padding:10px 0px ;
+    border: none;
+    width: 90%;
+}
+.class-section .search-box div p{
+    padding: 4px 12px;
+    border-radius: $border-reduis-md;
+    transition: all linear .3s;
+    &.active{
+        color: $white;
+        background-color: $blue;
+    }
+    &:hover{
+        color: $white;
+        background-color: $blue;
+    }
+}
+
+.aviableClass,
+.comming{
+    @include gridItem(3, 32px);
+    margin-top: 24px;
+    padding: 12px 32px;
+    margin-bottom: 32px;
+}
+.aviableClass .class,
+.comming .class {
+    height: 460px;
+    overflow: hidden;
+    border-radius: $border-reduis-md;
+    box-shadow: 2px 2px 8px $gray;
+}
+.aviableClass .class:hover{
+    @include hoverBtn();
+}
+.aviableClass .image,
+.comming .image {
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    @include flex-centered();
+}
+
+.aviableClass .image img,
+.comming .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.aviableClass .class:hover img{
+    animation: bigger ease-in-out forwards 1s;
+}
+@keyframes bigger {
+    from {
+        width: 100%;
+        height: 100%;
+    }
+    to {
+        width: 110%;
+        height: 110%;
+    }
+}
+.text {
+    padding: 24px ;
+}
+.text p {
+    text-align: left;
+    margin: 12px 0px 26px 0px;
+    line-height: 1.2;
+    color: $gray;
+}
+.text button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    background-color: $blue;
+    color: $white;
+    font-weight: 600;
+    cursor: pointer;
+}
+.comming .text button {
+    background-color: $gray;
+    color: $white;
+    transition: all linear .3s;
+}
+.comming .text button:hover{
+    background: $blue;
+    color: $white;
+}
+
+.comming .class .image {
+  position: relative;
+  display: inline-block; 
+}
+
+.comming .class .image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px; 
+}
+.comming .class .image .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(360deg, rgba(75, 74, 74, 0.845));
+  z-index: 1;
+}
+
+.comming .class .image span {
+  position: absolute;
+  top: 100px;   
+  left: 30%;
+  transform: rotate(-20deg);
+  background: red;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  z-index: 2; 
+}
+
+.comming .class:hover .bg {
+    animation:  bg linear forwards .4s;
+}
+.nd-bg {
+    height: 100%;
+}
+@keyframes bg {
+    from {
+        background: linear-gradient(360deg, rgba(75, 74, 74, 0.845));
+    }
+    to {
+        background: linear-gradient(360deg,gray,rgba(128, 128, 128, 0.726),transparent);
+    }
+}
+
+
+@keyframes span {
+    from {
+        transform: rotate(-20deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+.comming .class:hover span{
+    animation: span linear forwards .3s;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+#purpose {
+    text-align: center;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 20px; /* spacing between images */
+  animation: marquee 15s linear infinite; /* adjust speed */
+}
+
+.marquee-content span {
+  display: flex;
+  gap: 20px; /* same spacing for duplicate set */
+}
+
+.marquee-content img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%; /* circular images */
+  object-fit: cover;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* move half width of duplicated content */
+}
+//----------------------------------------------
+//                 About us section
+// ---------------------------------------------
+
+
+.aboutUs-section {
+    padding: 20px;
+    padding-top: 120px;
+}
+.cardName {
+    margin: 20px 100px;
+    @include gridItem(2,0px );
+    margin-top: 48px;
+    box-shadow: $box-shadow-md;
+    padding: 24px 32px;
+    border-radius: $border-reduis-md;
+}
+.cardName .image {
+    position: relative;
+    width: 240px;
+    left: 20px;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 100%;
+    padding: 4px;
+}
+.cardName .image::before,
+.cardName .image::after{
+    position: absolute;
+    content: "";
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    border-radius: 50%;
+    background: conic-gradient( transparent, transparent,transparent,$blue );
+    animation: rotated linear infinite 5s;
+}
+.cardName .image::after{
+    animation-delay: -2.5s;
+}
+@keyframes rotated{
+    from{
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.cardName .image img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    z-index: 1;
+}
+.cardName .text-dsc h4 {
+    margin: 6px 0 24px 0;
+    font-weight: 500;
+    color: $blue;
+}
+.cardName .text-dsc p {
+    text-align: left;
+    color: $gray;
+}
+
+.cardName .text-dsc .contact-group {
+    @include flex-centered(20px);
+    justify-content: start;
+}
+.cardName .text-dsc .contact-group a {
+    text-decoration: none;
+    color: $white;
+    background-color: $blue;
+    padding: $btn-padding-sm;
+    border-radius: $border-reduis-md;
+}
+.cardName .text-dsc .contact-group a:hover{
+    animation:contactHover linear forwards .4s ;
+}
+
+@keyframes contactHover{
+    from{
+        background-color: $blue;
+        transform: translateY(0);
+    }
+    to {
+        background-color: blue;
+        transform: translateY(-6px);
+    }
+}
+
+.title-purpose {
+    @include text-gradient($font-size-lg);
+    text-align: center;
+    margin: 54px 0 12px 0;
+}
+
+.goals {
+    margin: 48px 56px;
+    @include gridItem(3,48px );
+    &-card{
+        position: relative;
+        padding: $btn-padding-md;
+        border: 2px solid $gray;
+        border-radius: $border-reduis-md;
+        padding-top: 48px;
+        border-bottom: 4px solid $blue;
+    }
+    &-card:hover{
+        @include hoverBtn();
+    }
+    &-card i {
+        position: absolute;
+        font-size: $font-size-md;
+        background-color: $white;
+        border-radius: 100%;
+        border: 2px solid $blue;
+        width: 48px;
+        height: 48px;
+        text-align: center;
+        align-content: center;
+        top: -24px;
+        box-shadow: 0 2px 4px $blue;
+    }
+    &-card h2 {
+        font-size: $font-size-md;
+        color: $blue;
+        margin-bottom: 20px;
+    }
+    &-card p{
+        text-align: left;
+    }
+    &-card:nth-child(even){
+        border-bottom-color: $purple;
+    }
+    &-card:nth-child(even) i{
+        border-color: $purple;
+    }
+    &-card:nth-child(even) h2{
+        color: $purple;
+    }
+}
+// -------------------------------------
+//              Contact us 
+// ------------------------------------
+
+.contact-section {
+    padding: 56px 0;
+    padding-top: 120px;
+}
+.contact-section h1 {
+    text-align: center;
+    @include text-gradient($font-size-lg);
+}
+
+.social-medies{
+    @include flex-centered(24px);
+    margin-top: 42px;
+    flex-wrap: wrap;
+   
+}
+.social-medies a {
+    width: 180px;
+    height: 160px;
+    @include btn-style-sm();
+    text-decoration: none;
+    align-content: center;
+    @include flex-centered();
+    flex-direction: column;
+    border-radius: $border-reduis-md;
+}
+.social-medies a:hover{
+    @include hoverBtn();
+}
+.social-medies .icon {
+    font-size: 32px;
+    width: 100%;
+    
+}
+.social-medies .icon i {
+    width: 70px;
+    height: 70px;
+    align-content: center;
+    border-radius: 100%;
+    color: white;
+}
+.facebook{
+    background-color: blue;
+}
+.tiktok {
+    background-color: $black;
+}
+.youtube{
+    background-color: red;
+}
+.tele-icon {
+    font-size: 68px;
+    color: blue;
+    width: 70px;
+    height: 70px;
+    align-content: center;
+    border-radius: 100%;
+    margin-bottom: 12px;
+}
+.contact-text {
+    color: $black;
+}
+#text{
+    margin-top: 32px;
+    color: $gray;
+    margin-bottom: 24px;
+}
+#email {
+    padding: 12px 32px;
+    border-radius: 24px;
+    @include btn-style-lg($font-size-sm, blue, $purple);
+    text-decoration: none;
+}
+#email:hover{
+    @include hoverBtn();
+}
+footer {
+    @include gridItem(3,24px );
+    padding: 32px 24px;
+    border-top: 1px solid $gray;
+}
+footer div p {
+    text-align: left;
+}
+footer .contactUs {
+    line-height: 2;
+}
+footer a {
+    text-decoration: none;
+}
+footer .contactUs a {
+    color: $black;
+}
+#facebook {
+    color: blue;
+}
+#telegram {
+    color: rgb(0, 106, 255);
+}
+#tiktok {
+    color: black;
+}
+#youtube {
+    color: red;
+}
+footer a i {
+    margin-right: 8px;
+}
+

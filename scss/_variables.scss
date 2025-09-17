@@ -1,0 +1,30 @@
+$white:#f0eeee;
+$black:#000;
+$blue:#2f4dfa;
+$purple:#ba3ffc;   
+$orange:#ff9c6e;
+$gray:#808080;
+
+$linear-color:linear-gradient(to right, $blue,$purple, $orange);
+
+
+// box-shadow
+$box-shadow-sm:0 2px 4px $gray;
+$box-shadow-md:0 2px 6px $gray;
+$box-shadow-lg:2px 4px 16px $gray;
+
+// btn
+$btn-padding-sm :10px 16px;  
+$btn-padding-md:14px 24px;
+$btn-padding-lg:1rem 1.5rem;
+
+$border-reduis-sm:10px;      
+$border-reduis-md:16px;
+$border-reduis-lg:32px;
+
+$font-size-sm:16px;
+$font-size-md:20px;        
+$font-size-lg:32px;
+$font-size-xl:56px;
+
+$font-width-heading:700;
