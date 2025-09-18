@@ -616,6 +616,55 @@ marquee img {
         color: $purple;
     }
 }
+
+.feedback {
+    @include flex-centered();
+    margin-top: 60px;
+    position: relative;
+}
+.feedback .personal {
+    width: 40%;
+    @include flex-centered();
+    flex-direction: column;
+    animation: display-feedback linear 16s infinite;
+    animation-delay: calc(-4s * var(--i));
+    box-shadow: $box-shadow-md;
+    padding: 24px 40px;
+    border-radius: $border-reduis-md;
+    line-height: 2;
+}
+.feedback h3 {
+    color: $blue;
+}
+
+@keyframes display-feedback{
+    0%{
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    5%,20%{
+        opacity: 1;
+        transform: translateX(0)
+    }
+    25%{
+        opacity: 0;
+        transform: translateX(20px)
+    }
+    25%,100%{
+        display: none;
+    }
+}
+.feedback button {
+    @include btn-style-sm();
+    border: none;
+    border-radius: 10px;
+}
+.feedback img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 100%;
+}
 // -------------------------------------
 //              Contact us 
 // ------------------------------------
