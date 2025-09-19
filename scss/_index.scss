@@ -182,7 +182,13 @@ nav .logo h2 {
 main{
     width: 100%;
 }
-// ===================HERO SECTION======================
+
+
+// ------------------------------------------
+//                 HERO SECTION    
+//------------------------------------------- 
+
+
 .hero-section{
     width: 100%;
     display: flex;
@@ -190,13 +196,13 @@ main{
     justify-content: center;
     align-items: center;
     padding: 120px 180px 32px 180px;
-    background: rgba(202, 202, 249, 0.411);
+    background: rgba(7, 7, 252, 0.139);
 }
 .hero-section p {
     font-size: $font-size-sm;
     &:nth-child(1){
         padding: $btn-padding-sm;
-        background-color: rgba(0, 0, 255, 0.137);
+        background-color: rgba(0, 0, 255, 0.167);
         border-radius: $border-reduis-md;
         color: $blue;
         animation: upDown linear infinite 5s;
