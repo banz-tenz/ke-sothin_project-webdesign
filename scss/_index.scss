@@ -460,11 +460,6 @@ main{
     animation: span linear forwards .3s;
 }
 
-.marquee {
-  width: 100%;
-  overflow: hidden;
-  margin-top: 80px;
-}
 
 #purpose {
     text-align: center;
@@ -472,12 +467,21 @@ main{
 marquee {
     margin-top: 80px;
 }
+marquee p {
+    font-weight: 700;
+}
+#marquee-card {
+    @include flex-centered(4px);
+    flex-direction: column;
+}
+.marquee {
+    @include flex-centered(40px);
+}
 marquee img {
     width: 80px;
     height: 80px;
     object-fit: cover;
     border-radius: 100%;
-    margin-right: 40px;
     box-shadow: $box-shadow-sm;
 }
 //----------------------------------------------
