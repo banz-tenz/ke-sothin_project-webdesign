@@ -127,7 +127,7 @@ nav .logo h2 {
     @include text-gradient($font-size-lg);
 }
 .nav-menu a {
-  font-size: $font-size-sm;
+  
   font-weight: 600;
   color: $gray;
   position: relative;
@@ -159,12 +159,14 @@ nav .logo h2 {
 
 
 .nav-menu .text-feature {
+    font-size: $font-size-sm;
     display: inline-block;
     padding: $btn-padding-md;
     text-decoration: none;
 }
 .icon-feature{
     display: none;
+    font-size: $font-size-lg;
 }
 .telegram {
     @include btn-style-lg($font-size-sm, $blue, $blue);
