@@ -66,7 +66,7 @@
     }
 
     .cardName .image{
-        left: 100px
+        left: 23%;
     }
     .cardName{
         @include gridItem(1, 20px);
@@ -126,7 +126,7 @@
         margin: 20px 8px;
     }
     .cardName .image{
-        left: 30px;
+        left: 10%;
     }
     .goals {
         @include gridItem(1,56px );
@@ -158,7 +158,7 @@
         width: 180px;
         height: 180px;
         padding: 2px;
-        left: 60px;
+        left: 20%;
     }
     .cardName .text-dsc p{
         font-size: 12px;
@@ -193,7 +193,7 @@
         padding: 0 12px;
     }
     .cardName .image{
-        left: 40px;
+        left: 14%;
     }
     .marquee-content img {
         width: 40px;
